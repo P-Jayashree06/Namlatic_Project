@@ -1,4 +1,4 @@
-# Namlatic — Hotel Management
+# Namlatic - Hotel Management
 
 A responsive hotel listing management app built with React, Redux, plain CSS, and React Helmet. It supports creating, viewing, editing, searching, filtering, and deleting hotel listings.
 
@@ -35,7 +35,3 @@ npm run preview
 ```
 
 The production files are generated in `dist/`. The project is frontend-only; hotel changes are stored in the browser where they are made.
-
-## GitHub Pages
-
-Every push to `main` deploys the site to [GitHub Pages](https://p-jayashree06.github.io/Namlatic_Project/) through `.github/workflows/deploy.yml`. Hotel detail navigation uses URL hashes so it works when hosted as a static site.
