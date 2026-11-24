@@ -3,7 +3,7 @@ import React from 'react';
 export default function Header({ onAddHotel }) {
   return (
     <header className="topbar">
-      <a className="brand" href="/" aria-label="Hotel Management home">
+      <a className="brand" href={import.meta.env.BASE_URL} aria-label="Hotel Management home">
         <span className="brand-mark" aria-hidden="true">H</span>
         <span className="brand-name">stay<span>wise</span></span>
       </a>

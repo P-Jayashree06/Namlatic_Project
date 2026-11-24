@@ -35,3 +35,7 @@ npm run preview
 ```
 
 The production files are generated in `dist/`. The project is frontend-only; hotel changes are stored in the browser where they are made.
+
+## GitHub Pages
+
+The `main` branch is deployed to GitHub Pages by `.github/workflows/deploy.yml`. Hotel detail navigation uses URL hashes so it works when hosted as a static site.

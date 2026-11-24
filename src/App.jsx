@@ -8,8 +8,8 @@ import HotelDetails from './pages/HotelDetails';
 import HotelList from './pages/HotelList';
 import { deleteHotel, loadHotels, saveHotel } from './redux/hotelSlice';
 
-function readHotelId(pathname) {
-  const match = pathname.match(/^\/hotel\/([^/]+)\/?$/);
+function readHotelId(hash) {
+  const match = hash.match(/^#\/hotel\/([^/]+)\/?$/);
   return match ? decodeURIComponent(match[1]) : null;
 }
 
@@ -19,16 +19,16 @@ export default function App() {
   const [hotelToEdit, setHotelToEdit] = useState(null);
   const [hotelToDelete, setHotelToDelete] = useState(null);
   const [notification, setNotification] = useState(null);
-  const [currentHotelId, setCurrentHotelId] = useState(() => readHotelId(window.location.pathname));
+  const [currentHotelId, setCurrentHotelId] = useState(() => readHotelId(window.location.hash));
 
   useEffect(() => {
     dispatch(loadHotels());
   }, [dispatch]);
 
   useEffect(() => {
-    const onPopState = () => setCurrentHotelId(readHotelId(window.location.pathname));
-    window.addEventListener('popstate', onPopState);
-    return () => window.removeEventListener('popstate', onPopState);
+    const onHashChange = () => setCurrentHotelId(readHotelId(window.location.hash));
+    window.addEventListener('hashchange', onHashChange);
+    return () => window.removeEventListener('hashchange', onHashChange);
   }, []);
 
   useEffect(() => {
@@ -38,14 +38,12 @@ export default function App() {
   }, [notification]);
 
   function navigateToHotel(id) {
-    window.history.pushState({}, '', `/hotel/${encodeURIComponent(id)}`);
-    setCurrentHotelId(id);
+    window.location.hash = `/hotel/${encodeURIComponent(id)}`;
     window.scrollTo(0, 0);
   }
 
   function navigateToList() {
-    window.history.pushState({}, '', '/');
-    setCurrentHotelId(null);
+    window.location.hash = '';
     window.scrollTo(0, 0);
   }
 
