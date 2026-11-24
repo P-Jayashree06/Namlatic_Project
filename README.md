@@ -38,4 +38,4 @@ The production files are generated in `dist/`. The project is frontend-only; hot
 
 ## GitHub Pages
 
-The `main` branch is deployed to [GitHub Pages](https://p-jayashree06.github.io/Namlatic_Project/) by `.github/workflows/deploy.yml`. Hotel detail navigation uses URL hashes so it works when hosted as a static site.
+Every push to `main` deploys the site to [GitHub Pages](https://p-jayashree06.github.io/Namlatic_Project/) through `.github/workflows/deploy.yml`. Hotel detail navigation uses URL hashes so it works when hosted as a static site.
